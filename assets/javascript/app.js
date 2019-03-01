@@ -27,10 +27,9 @@ function displayGiphy() {
       method: "GET"
     })
     .done(function (response) {
-      // $("#giphy-view").empty();
 
       for (var i = 0; i < response.data.length; i++) {
-        console.log(response.data[i])
+        // console.log(response.data[i])
         var giphyURL = response.data[i].images.fixed_height_small_still.url;
         var table = $("<table>");
         var gifDiv = $("<td class= row>");
@@ -56,14 +55,14 @@ function displayGiphy() {
 $(document).on("click", ".auto-btn", displayGiphy);
 
 // Handler of animation
-$(document).on('click', 'img', function () {
-  var state = $(this).attr('data-state');
-  if (state == 'still') {
-    $(this).attr('src', $(this).data('animate'));
-    $(this).attr('data-state', 'animate');
+$(document).on("click", "img", function () {
+  var state = $(this).attr("data-state");
+  if (state == "still") {
+    $(this).attr("src", $(this).data("animate"));
+    $(this).attr("data-state", "animate");
   } else {
-    $(this).attr('src', $(this).data('still'));
-    $(this).attr('data-state', 'still');
+    $(this).attr("src", $(this).data("still"));
+    $(this).attr("data-state", "still");
   };
 });
 
